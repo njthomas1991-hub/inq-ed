@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}INQ-ED{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'core/images/favicon/favicon-32x32.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/images/favicon/favicon-16x16.png' %}">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+<header class="mb-3">
+    <div class="bg-light py-1 px-3 d-flex justify-content-between align-items-center small">
+        <div class="fw-semibold">Inclusive Quest Education</div>
+        <div>
+            {% if user.is_authenticated %}
+                <span class="me-2">Welcome, {{ user.username }}</span>
+                <a class="link-primary" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a class="link-primary me-2" href="{% url 'login' %}">Login</a>
+                <a class="link-primary" href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </div>
+    </div>
+    <nav class="navbar navbar-light bg-light border-top">
+        <div class="container-fluid d-flex align-items-center gap-3">
+            <div class="dropdown">
+                <a class="navbar-brand d-flex align-items-center dropdown-toggle" href="#" id="brandMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static 'core/images/inq-ed-logo.png' %}" alt="Logo" class="img-fluid" style="max-height: 64px;">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="brandMenu">
+                    <li><a class="dropdown-item" href="{% url 'home' %}">Home</a></li>
+                    <li><a class="dropdown-item" href="{% url 'about' %}">About</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Platforms
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    WonderWorld
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'kindlewick' %}">Kindle Wick</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'questopia' %}">Questopia</a></li>
+                        </ul>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{% url 'pricing' %}">Pricing</a></li>
+                    <li><a class="dropdown-item" href="{% url 'teacher_hub' %}">Teacher Hub</a></li>
+                    <li><a class="dropdown-item" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+
+            <a class="btn btn-primary" href="{% url 'signup' %}">Get Started</a>
+        </div>
+    </nav>
+</header>
+<main>
+    {% block content %}{% endblock %}
+</main>
+<footer class="text-center py-4 mt-4 border-top">
+    <p class="mb-0">&copy; 2024 Inclusive Quest Education</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
