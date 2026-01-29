@@ -3,9 +3,9 @@
 
 {% block content %}
 <!-- Hero Section with Video -->
-<section class="hero text-center text-white" style="min-height: 100vh; display: flex; flex-direction: column; overflow: hidden;">
+<section class="hero hero-text text-center" style="min-height: 100vh; display: flex; flex-direction: column; overflow: hidden;">
     <!-- Header -->
-    <div class="py-4" style="z-index: 3;">
+    <div class="py-4 hero-header" style="z-index: 3;">
         <h2 class="display-4 fw-bold mb-0">Learning Through Play</h2>
     </div>
     
@@ -24,13 +24,61 @@
         </video>
         
         <!-- Dark Overlay for Better Text Readability -->
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.3); z-index: 2;"></div>
+        <div class="position-absolute top-0 start-0 w-100 h-100 hero-video-overlay" style="z-index: 2;"></div>
     </div>
     
     <!-- Content Below Video -->
-    <div class="py-4" style="z-index: 3; background: rgba(0, 0, 0, 0.5);">
+    <div class="py-4 hero-content" style="z-index: 3;">
         <p class="lead mb-4" style="font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto; padding: 0 1rem;">Discover engaging educational games that make learning fun and interactive for students of all ages.</p>
-        <a href="{% url 'signup' %}" class="btn btn-light btn-lg">Get Started Today</a>
+        <div class="d-flex justify-content-center align-items-center gap-3">
+            <div class="widgit-symbol" data-symbol="start">
+                <div class="widgit-symbol-placeholder">▶️</div>
+            </div>
+            <a href="{% url 'signup' %}" class="btn btn-light btn-lg">Get Started Today</a>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Access Buttons Section -->
+<section class="quick-access py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- WonderWorld Button -->
+            <div class="col-md-6 col-lg-4">
+                <a href="{% url 'wonderworld' %}" class="quick-access-btn text-decoration-none">
+                    <div class="quick-access-image-wrapper">
+                        <img src="{% static 'core/images/wonderworld logo.png' %}" alt="WonderWorld" class="img-fluid">
+                        <div class="quick-access-overlay">
+                            <span class="quick-access-text">Enter WonderWorld</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Questopia Button -->
+            <div class="col-md-6 col-lg-4">
+                <a href="{% url 'questopia' %}" class="quick-access-btn text-decoration-none">
+                    <div class="quick-access-image-wrapper">
+                        <img src="{% static 'core/images/questopia badge.png' %}" alt="Questopia" class="img-fluid">
+                        <div class="quick-access-overlay">
+                            <span class="quick-access-text">Start Questopia</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Teacher hub Button -->
+            <div class="col-md-6 col-lg-4">
+                <a href="{% url 'teacher_hub' %}" class="quick-access-btn text-decoration-none">
+                    <div class="quick-access-image-wrapper">
+                        <img src="{% static 'core/images/teacher hub logo.png' %}" alt="Teacher Hub" class="img-fluid">
+                        <div class="quick-access-overlay">
+                            <span class="quick-access-text">Explore our Teacher Hub</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -46,7 +94,12 @@
                     <div class="card-body">
                         <h5 class="card-title">WonderWorld</h5>
                         <p class="card-text">Explore a magical world filled with puzzles, challenges, and educational quests.</p>
-                        <a href="{% url 'wonderworld' %}" class="btn btn-primary btn-sm">Explore</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="widgit-symbol" data-symbol="explore">
+                                <div class="widgit-symbol-placeholder">🌍</div>
+                            </div>
+                            <a href="{% url 'wonderworld' %}" class="btn btn-primary btn-sm">Explore</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,7 +111,12 @@
                     <div class="card-body">
                         <h5 class="card-title">Questopia</h5>
                         <p class="card-text">Embark on epic quests and adventures while mastering key learning concepts.</p>
-                        <a href="{% url 'questopia' %}" class="btn btn-primary btn-sm">Explore</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="widgit-symbol" data-symbol="quest">
+                                <div class="widgit-symbol-placeholder">⚔️</div>
+                            </div>
+                            <a href="{% url 'questopia' %}" class="btn btn-primary btn-sm">Explore</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,7 +128,12 @@
                     <div class="card-body">
                         <h5 class="card-title">Kindle Wick</h5>
                         <p class="card-text">A cozy learning space designed for personalized educational experiences.</p>
-                        <a href="{% url 'kindlewick' %}" class="btn btn-primary btn-sm">Explore</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="widgit-symbol" data-symbol="learning">
+                                <div class="widgit-symbol-placeholder">📖</div>
+                            </div>
+                            <a href="{% url 'kindlewick' %}" class="btn btn-primary btn-sm">Explore</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,7 +229,12 @@
     <div class="container">
         <h2 class="mb-4">Ready to Transform Learning?</h2>
         <p class="lead mb-4">Join thousands of educators and students using INQ-ED today.</p>
-        <a href="{% url 'signup' %}" class="btn btn-light btn-lg">Start Your Journey</a>
+        <div class="d-flex justify-content-center align-items-center gap-3">
+            <div class="widgit-symbol" data-symbol="start">
+                <div class="widgit-symbol-placeholder">🚀</div>
+            </div>
+            <a href="{% url 'signup' %}" class="btn btn-light btn-lg">Start Your Journey</a>
+        </div>
     </div>
 </section>
 
@@ -195,6 +263,68 @@
 
 .btn-primary:hover {
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Quick Access Buttons */
+.quick-access-btn {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.quick-access-btn:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.quick-access-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 280px;
+    background: #f0f0f0;
+}
+
+.quick-access-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.quick-access-btn:hover .quick-access-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.quick-access-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(102, 126, 234, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+}
+
+.quick-access-btn:hover .quick-access-overlay {
+    opacity: 1;
+}
+
+.quick-access-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
 }
 </style>
 {% endblock %}
