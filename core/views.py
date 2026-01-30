@@ -1,3 +1,7 @@
+from django.http import HttpResponse
+# Simple home page view
+def home_page_view(request):
+    return HttpResponse("Hello, World!")
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
