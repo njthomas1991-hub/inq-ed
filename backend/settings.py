@@ -108,7 +108,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Use DATABASE_URL environment variable for all database configuration
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
+    'default': dj_database_url.config(
+        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
+        conn_max_age=600,
+        ssl_require=False
+    )
 }
 
 
